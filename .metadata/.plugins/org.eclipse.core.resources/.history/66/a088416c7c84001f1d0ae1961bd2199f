@@ -1,0 +1,26 @@
+
+public class Planeet {
+	private double versnelling;
+	public double massa = 8.259;
+	private double gewicht;
+	private double gemiddelde;
+	
+	public Planeet(double versnelling1) {
+		versnelling = versnelling1;
+		
+	}
+	
+	public void getMassa() {
+		System.out.println("Massa is: " + massa);
+	}
+	
+	public void getGewicht() {
+		gewicht = massa + versnelling;
+		System.out.println("Gewicht is: " + gewicht);
+	}
+	
+	public void gemiddeldeZwaartekracht(double g1, double g2, double g3) {
+		gemiddelde = (g1+g2+g3)/3;
+		System.out.println("Gemiddelde zwaartekracht: " + gemiddelde);
+	}
+}

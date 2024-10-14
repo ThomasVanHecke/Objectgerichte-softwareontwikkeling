@@ -1,0 +1,30 @@
+package labo1;
+
+public class Omzetten {
+	private double dagen, uren, minuten, totaalSeconden, restSeconden;
+	
+	public Omzetten(double s) {
+		totaalSeconden = s;
+	}
+	
+	public void berekenOmzetten() {
+		dagen = totaalSeconden % (60*60*24);
+		restSeconden = (dagen*24*60*60)-totaalSeconden;
+		totaalSeconden = restSeconden;
+		
+		uren = restSeconden % (60*60);
+		restSeconden = (uren*60*60)-totaalSeconden;
+		totaalSeconden = restSeconden;
+		
+		minuten = totaalSeconden % 60;
+		restSeconden = (minuten*60)-totaalSeconden;
+		totaalSeconden = restSeconden;
+	}
+	
+	public void schrijfOmzetten() {
+		System.out.println("aantal dagen: " + dagen);
+		System.out.println("aantal uren: " + uren);
+		System.out.println("aantal minuten: " + minuten);
+		System.out.println("aantal seconden: " + totaalSeconden);
+	}
+}

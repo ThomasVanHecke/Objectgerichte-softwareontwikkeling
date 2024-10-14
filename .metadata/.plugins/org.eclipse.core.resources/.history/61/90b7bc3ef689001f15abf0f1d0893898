@@ -1,0 +1,17 @@
+
+public class Vaten {
+	private int maxVolume;
+	
+	public Vaten() {
+		maxVolume = 0;
+	}
+	
+	public Vaten(int v) {
+		maxVolume = v;
+	}
+	
+	public void vulMet(int v) {
+		
+	}
+
+}

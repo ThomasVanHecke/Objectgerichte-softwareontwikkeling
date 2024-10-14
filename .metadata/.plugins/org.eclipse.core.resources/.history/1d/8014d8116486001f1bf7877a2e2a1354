@@ -1,0 +1,45 @@
+
+public class BankRekening {
+	private String houder;
+	private int nummer;
+	private int saldo;
+	
+	// default-constructor
+	public BankRekening() {
+		houder = "niemand";
+		nummer = 0;
+		saldo = 0;
+	}
+	
+	// argumenten-constructor
+	public BankRekening(String h, int n, int s) {
+		houder = h;
+		nummer = n;
+		saldo = s;
+	}
+	
+	// setters & getters
+	public void setHouder(String h) {
+		houder = h;
+	}
+	
+	public String getHouder() {
+		return houder;
+	}
+	
+	public void setNummer(int n) {
+		nummer = n;
+	}
+	
+	public int getNummer() {
+		return nummer;
+	}
+	
+	public void setSaldo(int s) {
+		saldo = s;
+	}
+	
+	public int getSaldo() {
+		return saldo;
+	}
+}

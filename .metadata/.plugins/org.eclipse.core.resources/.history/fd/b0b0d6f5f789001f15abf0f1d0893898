@@ -1,0 +1,30 @@
+
+public class Vaten {
+	private int maxVolume;
+	private int volume;
+	
+	public Vaten() {
+		maxVolume = 0;
+		volume = 0;
+	}
+	
+	public Vaten(int v) {
+		maxVolume = v;
+		volume = 0;
+	}
+	
+	public void vulMet(int v) {
+		volume += v;
+	}
+	
+	public void pompOver(int v, Vaten vat) {
+		vat.volume += v;
+		volume -= v;
+	}
+	
+	public void schrijf() {
+		System.out.println("Volume: " + volume);
+		System.out.println("Max volume: " + maxVolume);
+	}
+
+}

@@ -1,0 +1,53 @@
+
+public class Aquarium {
+	private int aantalInVoorraad;
+	private double lengte, breedte, hoogte, kostprijs;
+	
+	// default-constructor
+	public Aquarium() {
+		lengte = 0;
+		breedte = 0;
+		hoogte = 0;
+		kostprijs = 0;
+		aantalInVoorraad = 0;
+	}
+	
+	// drie parameter-constructor
+	public Aquarium(int l, int b, int h, int p, int k, int aIV) {
+		lengte = l;
+		breedte = b;
+		hoogte = h;
+		kostprijs = k;
+		aantalInVoorraad = aIV;
+	}
+	
+	// copy-constructor met lengte parameter
+	public Aquarium(Aquarium a, double l) {
+		lengte = l;
+		breedte = a.breedte;
+		hoogte = a.hoogte;
+		kostprijs = a.kostprijs;
+		aantalInVoorraad = a.aantalInVoorraad;
+	}
+	
+	// kopieer-methode met breedte parameter
+	public void kopieerAquarium(Aquarium a, double b) {
+		breedte = b;
+		lengte = a.lengte;
+		hoogte = a.hoogte;
+		kostprijs = a.kostprijs;
+		aantalInVoorraad = a.aantalInVoorraad;
+	}
+	
+	// ontvangen-methode
+	public double ontvangenAquarium(int va) {
+		return (kostprijs * va);
+	}
+	
+	// schrijf-methode
+	public void schrijfAquarium() {
+		System.out.println(lengte + "/" + breedte + "/" + hoogte + "/" + kostprijs + "/" + aantalInVoorraad);
+	}
+	
+	
+}

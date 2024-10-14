@@ -1,0 +1,7 @@
+
+public class Aquarium {
+	private int aantalInVoorraad;
+	private double lengte, breedte, hoogte, kostprijs;
+	
+	
+}

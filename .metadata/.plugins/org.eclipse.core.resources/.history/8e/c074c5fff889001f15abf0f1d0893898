@@ -1,0 +1,19 @@
+
+public class GebruikVaten {
+	
+	public static void main(String[] args) {
+		
+		Vaten vat1 = new Vaten(100); //leeg vat van max 100 liter
+		Vaten vat2 = new Vaten(500); //leeg vat van max 500 liter
+		
+		vat1.vulMet(35); //voeg 35 l vloeistof toe
+		vat1.schrijf(); //sop: vat van 100 l met 35 l gevuld
+		
+		vat1.vulMet(80); //voeg 80 l toe, 15 l gaat verloren
+		vat1.schrijf(); //sop: vat van 100 l met 100 l gevuld
+		
+		vat1.pompOver(90,vat2);
+		vat1.schrijf(); //sop: vat van 100 l met 10 l gevuld
+		vat2.schrijf(); //sop: vat van 500 l met 90 l gevuld
+	}
+}

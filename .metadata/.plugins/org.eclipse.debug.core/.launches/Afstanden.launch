@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/CollegeH2/src/punt/Afstanden.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="punt.Afstanden"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="CollegeH2"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="CollegeH2"/>
+</launchConfiguration>
