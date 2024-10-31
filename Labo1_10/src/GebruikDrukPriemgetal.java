@@ -6,7 +6,7 @@ public class GebruikDrukPriemgetal {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Grenswaarde: ");
 		int grens = sc.nextInt();
-		DrukPriemgetallen p = new DrukPriemgetallen();
+		DrukPriemgetallen p = new DrukPriemgetallen(); // New object with reference name p
 		for (int i=2; i<=grens; i++) { // elk getal controleren op priemgetal tot grens
 			System.out.println("i: " + i);
 			if (p.isPriem(i)) { // getal controleren met methode

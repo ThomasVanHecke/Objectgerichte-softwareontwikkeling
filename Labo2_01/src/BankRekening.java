@@ -23,7 +23,7 @@ public class BankRekening {
 		houder = h;
 	}
 	
-	public String getHouder() {
+	public String getHouder() { // Returns a value of type string
 		return houder;
 	}
 	
@@ -31,7 +31,7 @@ public class BankRekening {
 		nummer = n;
 	}
 	
-	public String getNummer() {
+	public String getNummer() { // Returns a value of type string
 		return nummer;
 	}
 	
@@ -39,7 +39,7 @@ public class BankRekening {
 		saldo = s;
 	}
 	
-	public double getSaldo() {
+	public double getSaldo() { // Returns a value of type double
 		return saldo;
 	}
 }

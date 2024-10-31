@@ -19,7 +19,7 @@ public class Tijd {
 	}
 	
 	// copy-constructor
-	public Tijd(Tijd t) {
+	public Tijd(Tijd t) { // As method argument a object
 		uurWaarde = t.uurWaarde;
 		minuutWaarde = t.minuutWaarde;
 		secondWaarde = t.secondWaarde;
