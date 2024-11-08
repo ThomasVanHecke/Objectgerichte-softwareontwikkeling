@@ -2,7 +2,7 @@
 public class Driehoek {
 	private double z1, z2, z3, pythagoras, langste;
 	
-	public Driehoek(double zijde1, double zijde2, double zijde3) {
+	public Driehoek(double zijde1, double zijde2, double zijde3) { // 3 parameter constructor
 		z1 = zijde1;
 		z2 = zijde2;
 		z3 = zijde3;
@@ -10,7 +10,7 @@ public class Driehoek {
 		langste = 0;
 	}
 	
-	public void berekenDriehoek() {
+	public void berekenDriehoek() { // method
 		if(z1 >= z2 && z1 >= z3) {
 			langste = z1;
 			pythagoras = Math.sqrt(z2*z2 + z3*z3);
@@ -25,7 +25,7 @@ public class Driehoek {
 		}
 	}
 	
-	public void schrijfDriehoek() {
+	public void schrijfDriehoek() { // method
 		if(langste == pythagoras) {
 			System.out.println("Het is een rechthoekige driehoek");
 			System.out.println(z1);

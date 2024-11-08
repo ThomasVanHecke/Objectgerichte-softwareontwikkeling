@@ -1,9 +1,8 @@
-package labo1;
-
 public class Omzetten {
 	private int dagen, uren, minuten, totaalSeconden, restSeconden;
 	
-	public Omzetten(int s) {
+	public Omzetten(int s) // 1 parameter constructor
+	{
 		totaalSeconden = s;
 		dagen = 0;
 		uren = 0;
@@ -11,7 +10,8 @@ public class Omzetten {
 		restSeconden = 0;
 	}
 	
-	public void berekenOmzetten() {
+	public void berekenOmzetten() // methode
+	{
 		dagen = totaalSeconden / (60*60*24);
 		restSeconden = totaalSeconden % (24*60*60);
 		totaalSeconden = restSeconden;
@@ -25,7 +25,8 @@ public class Omzetten {
 		totaalSeconden = restSeconden;
 	}
 	
-	public void schrijfOmzetten() {
+	public void schrijfOmzetten() // methode
+	{
 		System.out.println("aantal dagen: " + dagen);
 		System.out.println("aantal uren: " + uren);
 		System.out.println("aantal minuten: " + minuten);

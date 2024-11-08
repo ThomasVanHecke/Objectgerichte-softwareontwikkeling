@@ -3,12 +3,12 @@ public class Onderzoek {
 	private double g;
 	private boolean even;
 	
-	public Onderzoek(double getal) {
+	public Onderzoek(double getal) { // 1 parameter constructor 
 		g = getal;
 		even = false;
 	}
 	
-	public void berekenOnderzoek() {
+	public void berekenOnderzoek() { // method
 		if((g % 2) == 0) {
 			even = true;
 		}
@@ -17,7 +17,7 @@ public class Onderzoek {
 		}
 	}
 	
-	public void schrijfOnderzoek() {
+	public void schrijfOnderzoek() { // method
 		if(even) {
 			System.out.println("Het getal is EVEN");
 		}

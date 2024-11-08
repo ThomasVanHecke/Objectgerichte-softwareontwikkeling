@@ -5,13 +5,15 @@ public class Priemgetal {
 	
 	public Priemgetal(int g) {
 		getal = g;
-		priemgetal = true;
+		priemgetal = true; // Assuming that every number is a primenumber
 	}
 	
 	public void berekenPriemgetal() {
+		// Initial value of i = 2; As long as i < getal run the loop; Afterwards increment i by 1
 		for(int i = 2; i < getal; i++) {
 			System.out.print(i);
-			if((getal % i) == 0) {
+			// Taking the modulo of getal, to check if i is a divisor (deler) of getal
+			if((getal % i) == 0) { 
 				priemgetal = false;
 			}
 		}

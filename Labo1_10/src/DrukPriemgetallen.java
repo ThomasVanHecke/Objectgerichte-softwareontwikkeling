@@ -2,11 +2,11 @@
 public class DrukPriemgetallen {
 	private boolean priemgetal;
 	
-	public DrukPriemgetallen() {
-		priemgetal = true;
+	public DrukPriemgetallen() { // Default constructor
+		priemgetal = true; // Assuming every getal is a primenumber
 	}
 	
-	public void setPriemgetal() {
+	public void setPriemgetal() { // Set-method (setter)
 		priemgetal = true;
 	}
 	
