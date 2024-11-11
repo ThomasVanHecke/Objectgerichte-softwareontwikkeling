@@ -14,6 +14,7 @@ public class Iban extends JFrame {
 	private JButton knop ; // Attribute knop of type JButton (class can be used as a datatype)
 	private JLabel label_result ; // Attribute label_result of type JLabel (class can be used as a datatype)
 	
+	
 	// Default constructor
 	public Iban () {	
 		
@@ -22,16 +23,20 @@ public class Iban extends JFrame {
 		knop = new JButton("Controleer rekeningnummer ") ; // Knop is the reference to the new object created of type JButton
 		label_result = new JLabel (); // Label_result is the reference to the new object created of type JLabel
 		
-		// Defines the single line of text this component will display. Ifthe value of text is null or empty string, nothing is displayed. 
+		// Defines the single line of text this component will display. If the value of text is null or empty string, nothing is displayed. 
 		label_result.setText(" weergave : geldig of ongeldig ! ") ;
 		
-		knop.addActionListener(new ActionListener () {	
+		
+		
+		knop.addActionListener(new ActionListener () {
 			
 			public void actionPerformed ( ActionEvent ae ) {
 				// Returns the text contained in this TextComponent.
 				String s  = tekstvak.getText() ;
+				// Creating an object of class ControleerIBAN with readed String 's'
+				ControleerIBAN c = new ControleerIBAN(s);
 				
-				if (controleerIBAN()) {
+				if (c.controleerIBAN()) {
 					label_result.setText("Geldig!");
 				}
 				
