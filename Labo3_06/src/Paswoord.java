@@ -53,10 +53,12 @@ public class Paswoord {
 		for(Character c : this.karakters) {
 			this.karakter ++; // Increment for every element of karakters-array
 			
+			// Using the isCijfer()-static-method
 			if(isCijfer(c)) {
 				this.cijfer ++;
 			}
 			
+			// // Using the isLetter()-static-method
 			if(isLetter(c)) {
 				this.letter ++;
 			}
@@ -69,11 +71,13 @@ public class Paswoord {
 	/* A static method is not bound to an object, therefore we cannot access the attributes of a specific object */
 	/* Solution: we return a boolean an use these static methods in our default constructor, there we can access specific object-attributes */
 	public static boolean isCijfer(char c) {
+		// Using a method of the Character class -> more elegant
 		return Character.isDigit(c);
 	}
 	
 	// The isCijfer-method (static-method)
 	public static boolean isLetter(char c) {
+		// Using a method of the Character class -> more elegant
 		return Character.isLetter(c);
 		}
 	
