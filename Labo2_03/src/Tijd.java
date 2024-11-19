@@ -19,7 +19,11 @@ public class Tijd {
 	}
 	
 	// copy-constructor
+<<<<<<< HEAD
 	public Tijd(Tijd t) { // As method argument a object
+=======
+	public Tijd(Tijd t) {
+>>>>>>> refs/remotes/origin/master
 		uurWaarde = t.uurWaarde;
 		minuutWaarde = t.minuutWaarde;
 		secondWaarde = t.secondWaarde;

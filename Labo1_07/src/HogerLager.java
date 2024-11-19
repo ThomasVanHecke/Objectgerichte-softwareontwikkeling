@@ -20,7 +20,11 @@ public class HogerLager {
 		while(g != random) {
 			poging += 1;
 			System.out.print("Probeer opnieuw: ");
+<<<<<<< HEAD
 			g = sc.nextInt(); // Asking new value for g
+=======
+			g = sc.nextInt(); // g niet vergeten updaten
+>>>>>>> refs/remotes/origin/master
 		}
 		System.out.println("aantal pogingen: " + poging);
 		System.out.println("min: " + min);
