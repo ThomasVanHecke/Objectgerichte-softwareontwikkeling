@@ -42,6 +42,10 @@ public class Deelnemer{
 	}
 	
 	// Getter
+	public Score getScoreOpIndex(int index) {
+		Score s = scoreLijst.get(index);
+		return s;
+	}
 	public List<Score> getScorelijst() {
 		return scoreLijst;
 	}
@@ -49,6 +53,13 @@ public class Deelnemer{
 	// Setter
 	public void setScoreLijst(List<Score> scorelijst) {
 		this.scoreLijst = scorelijst;
+	}
+	
+	public void setScoreOpNaam(String naamJury, int nieuw) {
+		// To use a defined method in the same class, just type the method-name
+		int index = zoekScoreOpNaam(naamJury);
+		Score s = getScoreOpIndex(index);
+		s.setWaarde(nieuw);
 	}
 	
 	public void voegScoreToe(Score s){
@@ -70,6 +81,18 @@ public class Deelnemer{
 		for (Score s:scoreLijst)
 			totaal += s.getWaarde();
 		return totaal;
+	}
+	
+	public int zoekScoreOpNaam(String naam) {
+		int index = 0;
+		for(Score s : scoreLijst) {
+			JuryLid j = s.getJury();
+			if(j.getNaam().equals(naam)) {
+				return index;
+			}
+			index ++;
+		}
+		return -1;
 	}
 	
 	@Override

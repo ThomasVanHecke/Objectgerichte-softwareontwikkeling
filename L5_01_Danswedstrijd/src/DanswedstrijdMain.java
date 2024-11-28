@@ -18,6 +18,9 @@ public class DanswedstrijdMain {
 		System.out.println("\t 10. Zoek deelnemer op naam en toon scores");
 		System.out.println("\t 11. Toon winnaar");
 		System.out.println("\t 12. Verwijder JuryLid en al zijn gegeven scores (NOG NIET GEACTIVEERD)");
+		System.out.println("\t 13. Wijzig naam deelnemer");
+		System.out.println("\t 14. Wijzig naam jurylid");
+		System.out.println("\t 15. Wijzig score deelnemer");
 		System.out.println();		
 		System.out.println("\t 0. Stoppen");
 		System.out.println();
@@ -54,8 +57,7 @@ public class DanswedstrijdMain {
 					break;
 					
 				case 1: // voeg deelnemer toe							
-					System.out.print("Inschrijvingsnummer: ");	
-					nummer = Integer.parseInt(sc.nextLine());
+					nummer = l.getAantalDeelnemers();
 					System.out.print("Naam: ");
 					naam = sc.nextLine();
 					Deelnemer d = new Deelnemer(nummer, naam);
@@ -156,8 +158,42 @@ public class DanswedstrijdMain {
 					System.out.println(l.getWinnaarDeelnemers().toString());
 					waitUntilKeypressed();
 					break;
+				
+				// WORKS
+				case 13:
+					System.out.println("Geef de orginele naam deelnemer: ");
+					String orgineelDeelnemer = sc.nextLine();
+					System.out.println("Geef de nieuwe naam deelnemer: ");
+					String nieuwDeelnemer = sc.nextLine();
+					l.wijzigNaamDeelnemer(orgineelDeelnemer, nieuwDeelnemer, l);
+					waitUntilKeypressed();
+					break;
+				
+				// WORKS
+				case 14:
+					System.out.println("Geef de orginele naam jurylid: ");
+					String orgineelJurylid = sc.nextLine();
+					System.out.println("Geef de nieuwe naam jurylid: ");
+					String nieuwJurylid = sc.nextLine();
+					jl.wijzigJurylidOpNaam(orgineelJurylid, nieuwJurylid, jl);
+					waitUntilKeypressed();
+					break;
 					
-									
+				// WORKS
+				case 15:
+					System.out.println("Geef de naam van de deelnemer: ");
+					String naamDeelnemer = sc.nextLine();
+					System.out.println("Geef de naam van de jury");
+					String naamJurylid = sc.nextLine();
+					Deelnemer d1 = l.getDeelnemerOpNaam(naamDeelnemer);
+					System.out.println(l.getScoresDeelnemer(d1));
+					System.out.println("Geef de nieuwe score: ");
+					int nieuw = sc.nextInt();
+					sc.nextLine(); // Clears the newline character from the buffer
+					l.wijzigScoresJurylid(naamDeelnemer, naamJurylid, nieuw, l, jl);
+					waitUntilKeypressed();
+					break;
+							
 				default:System.out.println("Ongeldige keuze!");
 				waitUntilKeypressed();
 				break;

@@ -21,6 +21,18 @@ public class DeelnemersLijst {
 		return deelnemers.size();
 	}
 	
+	public Deelnemer getDeelnemerOpNaam(String naam) {
+		int index = 0;
+		for(Deelnemer d : deelnemers) {
+			String naamDeelnemer = d.getNaam();
+			if(naam.equals(naamDeelnemer)) {
+				return d;
+			}
+			index ++;
+		}
+		return null;
+	}
+	
 	public Deelnemer getWinnaarDeelnemers() {
 		// Holds the value of the biggest totaleScore so far
 		int totaleScore = 0;
@@ -80,6 +92,23 @@ public class DeelnemersLijst {
 		return -1;
 	}
 	
+	public void wijzigNaamDeelnemer(String orgineel, String nieuw, DeelnemersLijst l) { // Passing the existing DeelnemersList
+		int index = l.zoekDeelnemerOpNaam(orgineel);
+		Deelnemer d = l.getDeelnemer(index);
+		d.setNaam(nieuw);
+	}
+	
+	public void wijzigScoresJurylid(String naamDeelnemer, String naamJurylid, int nieuw, DeelnemersLijst dL, JuryLedenLijst jL) {
+		int index = dL.zoekDeelnemerOpNaam(naamDeelnemer);
+		Deelnemer d = dL.getDeelnemer(index);
+		d.setScoreOpNaam(naamJurylid, nieuw);
+	}
+	
+	private void waitUntilKeypressed() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void verwijderDeelnemer(int inschrijvingsNummer){
 		int index = this.zoekDeelnemerOpInschrijvingsNummer(inschrijvingsNummer);
 		if (index >= 0) deelnemers.remove(index);
