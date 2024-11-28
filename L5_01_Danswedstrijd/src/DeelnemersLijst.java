@@ -21,6 +21,10 @@ public class DeelnemersLijst {
 		return deelnemers.size();
 	}
 	
+	public List<Deelnemer> getDeelnemersList(){
+		return deelnemers;
+	}
+	
 	public Deelnemer getDeelnemerOpNaam(String naam) {
 		int index = 0;
 		for(Deelnemer d : deelnemers) {
