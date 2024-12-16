@@ -1,9 +1,12 @@
+import java.io.FileReader;
 import java.io.IOException ;
+import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, NietUniekException {
 	
 		/* 
 	       Deel 1: initialisatie van pakjesdienstbedrijf	      
@@ -37,21 +40,48 @@ public class Main {
 		 		
 		
 		*/
+		FileReader fR = new FileReader("pakjes.txt");
+		Scanner sc = new Scanner(fR);
 		
-		try {
-			bedrijf.voegPakjeToe();
+		// Reading the file as long there is a next line
+		while (sc.hasNextLine()) {
+			//System.out.println("Entering while loop");
+				
+			// Reading the entire line as ONE string
+			String pakjeString = sc.nextLine();
+				
+			// Splitting the entire string with given regex (regular expression)
+			String[] pakjeArray = pakjeString.split(",");
+				
+			String id = pakjeArray[0];
+			String regio = pakjeArray[1];
+			String volume = pakjeArray[2];
+				
+			int iD = Integer.parseInt(id);
+			int vOlume = Integer.parseInt(volume);
+				
+			// For every line, creating a new object of class Pakje
+			Pakje p = new Pakje(iD, regio, vOlume);
+				
+			try{
+				//System.out.println("Pakje toevoegen");
+				bedrijf.voegPakjeToe(p);
+				
+			}
+			
+			catch(NietUniekException nue){
+				
+				System.out.println(nue.getMessage());
+				
+			}
+			//System.out.println("Pakje: " + p);
 		}
-		
-		catch (NietUniekException nUE) {
-			System.out.println(nUE.getMessage());
-		}
-		
-		
-		
+		System.out.println("Lijst pakjes: " + bedrijf.allePakjes.pakjes.toString());
+			
 		/* 
 		   Deel 3: alle gegevens naar het scherm schrijven		
 		
-		   Eerst de gegevens van de bestelwagens met de pakjes die aan hen zijn toegekend 
+		   Eerst de gegevens van de bestelwagens met de pakjes die aan hen zijn toegekend
 		   (toestand = TOEGEKEND), in het begin geen enkele.
 		   gebruik als hoofding "Bestelwagens met toegekende pakjes : "
 		 
@@ -65,12 +95,12 @@ public class Main {
 		
 						
 		
-		System.out.println(bedrijf) ;
+		System.out.println(bedrijf) ; // Roept automatisch de toString()-methode op van object bedrijf
 		
 		
 		
 		/* 
-		   Deel 4: eenvoudige, niet-realistische toekenning van pakjes aan bestelwagens		
+		   Deel 4: eenvoudige, niet-realistische toekenning van pakjes aan bestelwagens	
 		
 		   in verdeelPakjesOverBestelwagens doe je het volgende:
 		   
@@ -91,7 +121,7 @@ public class Main {
 		
 		*/
 		
-		bedrijf.verdeelPakjesOverBestelwagens() ;
+		//bedrijf.verdeelPakjesOverBestelwagens() ;
 		
 		
 		/* 
@@ -116,14 +146,14 @@ public class Main {
 		*/
 		
 						
-		bedrijf.setGeleverdDoorBestelwagen(2) ;
+		//bedrijf.setGeleverdDoorBestelwagen(2) ;
 		
 		
 		
 		// om te controleren of alles correct is		
 		
 		
-		System.out.println(bedrijf) ;
+		//System.out.println(bedrijf) ;
 		
 		
 	}

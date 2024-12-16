@@ -13,6 +13,13 @@ public class Pakje {
 		
 	}
 	
+	public Pakje(int id, String regio, int volume) {
+		this.id = id;
+		this.regio = regio;
+		this.volume = volume;
+		this.toestand = Toestand.AANWEZIG;
+	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -31,5 +38,31 @@ public class Pakje {
 		case 1: this.toestand = Toestand.TOEGEKEND; break;
 		case 2: this.toestand = Toestand.GELEVERD; break;
 		}
+	}
+	
+	public Toestand getToestand() {
+		return this.toestand;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getRegio() {
+		return this.regio;
+	}
+	
+	public int getVolume() {
+		return this.volume;
+	}
+	
+	public String toString() {
+		
+		//System.out.println("toString Pakje");
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.id + "/" + this.regio + "/" + this.volume + "/" + this.toestand);
+		
+		return sb.toString();
 	}
 }
