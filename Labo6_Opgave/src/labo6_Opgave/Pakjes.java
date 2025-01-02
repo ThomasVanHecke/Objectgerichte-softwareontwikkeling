@@ -1,5 +1,7 @@
+package labo6_Opgave;
 import java.util.List ;
 import java.util.ArrayList ;
+import java.util.*;
 
 
 
@@ -28,8 +30,8 @@ public class Pakjes {
 		return this.pakjes;
 	}
 	
-	// Does not work
-	public void sorteerOpRegio() {
+	// WORKS
+	public List<Pakje> getPakjesAanwezig(){
 		List<Pakje> pakjesAanwezig = new ArrayList<Pakje>();
 		for(Pakje p: this.pakjes) {
 			if(p.getToestand() == Toestand.AANWEZIG) {
@@ -37,10 +39,27 @@ public class Pakjes {
 			}
 		}
 		
-		pakjesAanwezig.sort(new sorteerRegio(pakjesAanwezig) {
+		return pakjesAanwezig;
+	}
+	
+	// Does not work
+	public List<Pakje> sorteerOpRegio(List<Pakje> pakjesAanwezig) {
+		// Sorting method via anonieme innerklasse
+		Collections.sort(pakjes, new Comparator<Pakje>() {
 			public int compare(Pakje p1, Pakje p2) {
-				p1.vergelijk(p2);
+				return p1.vergelijkRegio(p2);
 			}
 		});
+		return this.pakjes;
+	}
+
+	public void sorteerOpVolumeZelfdeRegio(List<Pakje> pakjesAanwezig) {
+		// Sorting method via anonieme innerklasse
+		Collections.sort(pakjes, new Comparator<Pakje>() {
+			public int compare(Pakje p1, Pakje p2) {
+				return p1.vergelijkVolumeZelfdeRegio(p2);
+			}
+		});
+		
 	}
 }

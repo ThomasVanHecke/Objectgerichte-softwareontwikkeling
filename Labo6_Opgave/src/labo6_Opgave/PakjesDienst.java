@@ -1,3 +1,4 @@
+package labo6_Opgave;
 import java.util.List ;
 import java.util.regex.Pattern;
 import java.io.*;
@@ -54,13 +55,54 @@ public class PakjesDienst {
 		}
 	}
 	
-	// Does not work
+	//WORKS
 	public void verdeelPakjesOverBestelwagen() {
-		List <Pakje> pakjes = this.allePakjes.pakjes;
+		List<Pakje> pakjesAanwezig = this.allePakjes.getPakjesAanwezig();
+		System.out.println("Pakjes toestand AANWEZIG: " + pakjesAanwezig);
 		
-		pakjes.sorteerOpRegio();
+		List<Pakje> pakjesOpRegioEnVolume = this.allePakjes.sorteerOpRegio(pakjesAanwezig);
+		System.out.println("pakjesAanwezig na sorteerOpRegio en sorteerOpVolumeZelfdeRegio: " + pakjesOpRegioEnVolume);
 		
+		this.toekennenPakjeBestelwagen(pakjesOpRegioEnVolume);
+		System.out.println("Pakjes na toekenning aan bestelwagens: " + pakjesOpRegioEnVolume);
 	}
+	
+	public void toekennenPakjeBestelwagen(List<Pakje> pakjesOpRegioEnVolume) {
+		List<Bestelwagen> bestelwagens = this.bestelwagens;
+		int i = 0; // Used for setting Regio
+		
+		for(Bestelwagen b: bestelwagens) {
+			List<Pakje> pakjesPerBestelwagen = b.getPakjes();
+			
+			/* SETTING THE REGION FOR BESTELWAGEN */
+			while(pakjesOpRegioEnVolume.get(i).getToestand() == Toestand.TOEGEKEND) {
+				i ++;
+			}
+			b.setRegio(i, pakjesOpRegioEnVolume); // set Regio to first element
+			System.out.println("Bestelwagen regio:" + b.getRegio());
+			
+			/* ADDING A PAKJE TO BESTELWAGEN */
+			for(Pakje p: pakjesOpRegioEnVolume) {
+				//System.out.println("TotaalVolume: " + b.getTotaalVolume());
+				//System.out.println("IngenomenVolume: " + b.getIngenomenVolume());
+				int bestelwagenResterendVolume = b.getTotaalVolume() - b.getIngenomenVolume();
+				//System.out.println("ResterendVolume: " + bestelwagenResterendVolume);
+				//System.out.println("Pakje Volume: " + p.getVolume());
+				//System.out.println("Pakje Regio:" + p.getRegio());
+				
+				/* FOR SOME REASON >= DOES NOT WORK => AND OR OPERATORS*/
+				if(b.getRegio() == p.getRegio() && bestelwagenResterendVolume > p.getVolume() || bestelwagenResterendVolume == p.getVolume()) {
+					pakjesPerBestelwagen.add(p);
+					int berekendIngenomenVolume = b.berekenIngenomenVolume(p.getVolume());
+					b.setIngenomenVolume(berekendIngenomenVolume);
+					p.setToestand(1); // Changing toestand
+					System.out.println("BerekendIngenomenVolume: " + berekendIngenomenVolume);
+				}
+			}
+			System.out.println("TeLeveren pakjes voor één bestelwagen: " + b.getPakjes());
+		}
+	}
+	
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -88,7 +130,20 @@ public class PakjesDienst {
 		// Adding new line
 		sb.append(System.lineSeparator());
 		
-		sb.append("Reeds geleverde pakjes: ");
+		sb.append("Reeds toegekende pakjes: " + System.lineSeparator());
+		
+		// Looking in Pakjes-class with AANWEZIG
+		for(Pakje p: this.allePakjes.pakjes) {
+			// Making difference between AANWEZIG and GELEVERD
+			if(p.getToestand() ==  Toestand.TOEGEKEND) {
+				sb.append(p + System.lineSeparator());
+			}
+		}
+		
+		// Adding new line
+		sb.append(System.lineSeparator());
+		
+		sb.append("Reeds geleverde pakjes: " + System.lineSeparator());
 		
 		// Looking in Pakjes-class with GELEVERD
 		for(Pakje p: this.allePakjes.pakjes) {
@@ -99,6 +154,18 @@ public class PakjesDienst {
 		}
 		
 		return sb.toString();
+	}
+
+	public void setGeleverdDoorBestelwagen(int nummerBestelwagen) {
+		List<Bestelwagen> bestelwagens = this.bestelwagens;
+		Bestelwagen bestelwagen = bestelwagens.get(nummerBestelwagen);
+		List<Pakje> pakjesGeleverd = bestelwagen.getPakjes();
+		
+		for(Pakje p: pakjesGeleverd) {
+			p.setToestand(2);
+		}
+		bestelwagen.resetBestelwagen();
+		
 	}
 	
 	// toString-methode

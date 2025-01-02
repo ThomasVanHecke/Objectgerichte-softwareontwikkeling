@@ -1,3 +1,4 @@
+package labo6_Opgave;
 import java.util.*;
 
 public class Pakje {
@@ -64,5 +65,25 @@ public class Pakje {
 		sb.append(this.id + "/" + this.regio + "/" + this.volume + "/" + this.toestand);
 		
 		return sb.toString();
+	}
+
+	public int vergelijkRegio(Pakje p2) {
+		String regio1 = this.getRegio();
+		String regio2 = p2.getRegio();
+		
+		if(regio1.compareTo(regio2) == 0) {
+			return this.vergelijkVolumeZelfdeRegio(p2);
+		}
+		
+		else {
+			return regio1.compareTo(regio2);
+		}
+	}
+
+	public int vergelijkVolumeZelfdeRegio(Pakje p2) {
+		int volume1 = this.getVolume();
+		int volume2 = p2.getVolume();
+		
+		return Integer.compare(volume2, volume1);
 	}
 }

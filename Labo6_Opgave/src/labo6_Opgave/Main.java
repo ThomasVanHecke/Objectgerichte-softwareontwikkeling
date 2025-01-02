@@ -1,7 +1,11 @@
+package labo6_Opgave;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException ;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
+import java.io.*;
 
 
 public class Main {
@@ -104,8 +108,11 @@ public class Main {
 		
 		   in verdeelPakjesOverBestelwagens doe je het volgende:
 		   
+		   WORKS
 		   stap 1: vraag aan allePakjes de pakjes met toestand AANWEZIG
+		   WORKS
 		   stap 2: sorteer deze op regio en bij gelijke regio's op grootte
+		   WORKS
 		   stap 3: zolang er nog bestelwagens zijn en zolang er nog pakjes zijn
 		   
 		            neem volgende pakje
@@ -121,7 +128,7 @@ public class Main {
 		
 		*/
 		
-		//bedrijf.verdeelPakjesOverBestelwagens() ;
+		bedrijf.verdeelPakjesOverBestelwagen() ;
 		
 		
 		/* 
@@ -133,7 +140,11 @@ public class Main {
 		
 				
 		*/
-		
+		FileWriter fW = new FileWriter("routes.txt");
+		PrintWriter pW = new PrintWriter(fW);
+		pW.println(bedrijf);
+		pW.close();
+
 		
 		/*
 				
@@ -146,14 +157,13 @@ public class Main {
 		*/
 		
 						
-		//bedrijf.setGeleverdDoorBestelwagen(2) ;
+		bedrijf.setGeleverdDoorBestelwagen(0) ;
 		
 		
 		
 		// om te controleren of alles correct is		
 		
-		
-		//System.out.println(bedrijf) ;
+		System.out.println(bedrijf) ;
 		
 		
 	}
