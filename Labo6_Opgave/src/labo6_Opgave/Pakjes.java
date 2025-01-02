@@ -42,7 +42,7 @@ public class Pakjes {
 		return pakjesAanwezig;
 	}
 	
-	// Does not work
+	// WORKS
 	public List<Pakje> sorteerOpRegio(List<Pakje> pakjesAanwezig) {
 		// Sorting method via anonieme innerklasse
 		Collections.sort(pakjes, new Comparator<Pakje>() {
