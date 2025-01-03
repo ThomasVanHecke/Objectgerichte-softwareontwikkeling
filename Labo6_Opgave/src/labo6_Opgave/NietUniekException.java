@@ -1,3 +1,4 @@
+package labo6_Opgave;
 
 public class NietUniekException extends Exception {
 	

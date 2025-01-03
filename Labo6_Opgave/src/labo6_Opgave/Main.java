@@ -1,9 +1,16 @@
+package labo6_Opgave;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException ;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Scanner;
+import java.io.*;
 
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, NietUniekException {
 	
 		/* 
 	       Deel 1: initialisatie van pakjesdienstbedrijf	      
@@ -37,21 +44,48 @@ public class Main {
 		 		
 		
 		*/
+		FileReader fR = new FileReader("pakjes.txt");
+		Scanner sc = new Scanner(fR);
 		
-		try {
-			bedrijf.voegPakjeToe();
+		// Reading the file as long there is a next line
+		while (sc.hasNextLine()) {
+			//System.out.println("Entering while loop");
+				
+			// Reading the entire line as ONE string
+			String pakjeString = sc.nextLine();
+				
+			// Splitting the entire string with given regex (regular expression)
+			String[] pakjeArray = pakjeString.split(",");
+				
+			String id = pakjeArray[0];
+			String regio = pakjeArray[1];
+			String volume = pakjeArray[2];
+				
+			int iD = Integer.parseInt(id);
+			int vOlume = Integer.parseInt(volume);
+				
+			// For every line, creating a new object of class Pakje
+			Pakje p = new Pakje(iD, regio, vOlume);
+				
+			try{
+				//System.out.println("Pakje toevoegen");
+				bedrijf.voegPakjeToe(p);
+				
+			}
+			
+			catch(NietUniekException nue){
+				
+				System.out.println(nue.getMessage());
+				
+			}
+			//System.out.println("Pakje: " + p);
 		}
-		
-		catch (NietUniekException nUE) {
-			System.out.println(nUE.getMessage());
-		}
-		
-		
-		
+		System.out.println("Lijst pakjes: " + bedrijf.allePakjes.pakjes.toString());
+			
 		/* 
 		   Deel 3: alle gegevens naar het scherm schrijven		
 		
-		   Eerst de gegevens van de bestelwagens met de pakjes die aan hen zijn toegekend 
+		   Eerst de gegevens van de bestelwagens met de pakjes die aan hen zijn toegekend
 		   (toestand = TOEGEKEND), in het begin geen enkele.
 		   gebruik als hoofding "Bestelwagens met toegekende pakjes : "
 		 
@@ -65,17 +99,20 @@ public class Main {
 		
 						
 		
-		System.out.println(bedrijf) ;
+		System.out.println(bedrijf) ; // Roept automatisch de toString()-methode op van object bedrijf
 		
 		
 		
 		/* 
-		   Deel 4: eenvoudige, niet-realistische toekenning van pakjes aan bestelwagens		
+		   Deel 4: eenvoudige, niet-realistische toekenning van pakjes aan bestelwagens	
 		
 		   in verdeelPakjesOverBestelwagens doe je het volgende:
 		   
+		   WORKS
 		   stap 1: vraag aan allePakjes de pakjes met toestand AANWEZIG
+		   WORKS
 		   stap 2: sorteer deze op regio en bij gelijke regio's op grootte
+		   WORKS
 		   stap 3: zolang er nog bestelwagens zijn en zolang er nog pakjes zijn
 		   
 		            neem volgende pakje
@@ -91,7 +128,7 @@ public class Main {
 		
 		*/
 		
-		bedrijf.verdeelPakjesOverBestelwagens() ;
+		bedrijf.verdeelPakjesOverBestelwagen() ;
 		
 		
 		/* 
@@ -103,7 +140,11 @@ public class Main {
 		
 				
 		*/
-		
+		FileWriter fW = new FileWriter("routes.txt");
+		PrintWriter pW = new PrintWriter(fW);
+		pW.println(bedrijf);
+		pW.close();
+
 		
 		/*
 				
@@ -116,12 +157,11 @@ public class Main {
 		*/
 		
 						
-		bedrijf.setGeleverdDoorBestelwagen(2) ;
+		bedrijf.setGeleverdDoorBestelwagen(0) ;
 		
 		
 		
 		// om te controleren of alles correct is		
-		
 		
 		System.out.println(bedrijf) ;
 		
