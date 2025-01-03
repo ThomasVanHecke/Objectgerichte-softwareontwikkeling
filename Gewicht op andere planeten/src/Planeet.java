@@ -4,9 +4,15 @@ public class Planeet {
 	public double massa = 8.259; // constante waarden mogen public
 	private double gewicht; // G = m(massa) * g(zwaarteveldsterkte)
 	private double gemiddelde;
+	private String naam;
+
+	public Planeet() {
+		
+	}
 	
-	public Planeet(double versnelling1) {
+	public Planeet(double versnelling1, String naam) {
 		versnelling = versnelling1;
+		this.naam = naam;
 		
 	}
 	
