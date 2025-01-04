@@ -1,3 +1,4 @@
+package xWing;
 
 public class AstroDroid {
 	private String naam;

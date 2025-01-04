@@ -6,6 +6,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/H5_Fout_XWing"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

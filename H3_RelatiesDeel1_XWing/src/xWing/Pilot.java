@@ -1,3 +1,4 @@
+package xWing;
 
 public class Pilot {
 	private String voornaam, achternaam;
