@@ -34,7 +34,7 @@ public class Liedjes {
 		Liedjes geselecteerdeLiedjes = new Liedjes();
 		
 		for(Lied l: this.liedjes) {
-			if(l.getTitel() == titel) {
+			if(l.getTitel().compareTo(titel) == 0) {
 				geselecteerdeLiedjes.voegLiedToe(l);
 			}
 		}

@@ -35,9 +35,8 @@ public class Main {
 			case 5: mijnLiedjes.sorteerOpDuurMetLambda(); break;
 			case 6: System.out.print("geef woord: ");
 					String woord = sc.nextLine();
-					geselecteerdeLiedjes =
-							mijnLiedjes.getGeselecteerdeLiedjesMetInTitel(woord);
-					System.out.println("Hier" + geselecteerdeLiedjes);
+					geselecteerdeLiedjes = mijnLiedjes.getGeselecteerdeLiedjesMetInTitel(woord);
+					System.out.println(geselecteerdeLiedjes);
 					break;
 			}
 		} 
