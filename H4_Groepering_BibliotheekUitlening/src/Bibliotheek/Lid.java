@@ -30,9 +30,7 @@ public class Lid {
 	}
 	
 	public String uitSchrijven() {
-		System.out.println(this.nummer);
-		StringBuilder sb = new StringBuilder(this.nummer + ',' + this.naam + ',' + this.email);
+		StringBuilder sb = new StringBuilder(this.nummer + "," + this.naam + "," + this.email);
 		return sb.toString();
 	}
-	
 }

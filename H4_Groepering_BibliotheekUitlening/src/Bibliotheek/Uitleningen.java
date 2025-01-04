@@ -76,8 +76,7 @@ public class Uitleningen {
 		
 		// WITH LAMBDA EXPRESSION
 		this.uitleningen.forEach((key, value) -> {
-			System.out.println(value.uitSchrijven());
-			sb.append(key.uitSchrijven() + ',' + value.uitSchrijven() + System.lineSeparator());
+			sb.append(key.uitSchrijven() + "," + value.uitSchrijven() + System.lineSeparator());
 		});
 		
 		return sb.toString();

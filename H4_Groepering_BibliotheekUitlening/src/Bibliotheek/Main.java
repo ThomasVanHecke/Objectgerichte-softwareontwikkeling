@@ -94,10 +94,9 @@ public class Main {
 				mijnBibliotheek.schrijf();
 				break;
 			
-			
+			/* WORKS */
 			case 3:
 				Uitleningen alleUitleningen = mijnBibliotheek.getUitleningen("alle");
-				alleUitleningen.schrijf();
 				//schrijven naar een tekstbestand (csv)
 				FileWriter fw = new FileWriter("Uitleningen.txt");
 				PrintWriter pw = new PrintWriter(fw);
