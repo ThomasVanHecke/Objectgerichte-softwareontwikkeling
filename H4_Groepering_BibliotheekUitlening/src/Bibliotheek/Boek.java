@@ -1,3 +1,4 @@
+package Bibliotheek;
 
 public class Boek {
 	private String code, auteur, titel;

@@ -1,5 +1,8 @@
+package Bibliotheek;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -71,7 +74,8 @@ public class Main {
 				}
 				mijnBibliotheek.schrijf();
 				break;
-				
+			
+			/* WORKS */
 			case 2:
 				double boete = 0;
 				System.out.println("lidnummer:");
@@ -90,13 +94,18 @@ public class Main {
 				mijnBibliotheek.schrijf();
 				break;
 			
-			/*
+			
 			case 3:
 				Uitleningen alleUitleningen = mijnBibliotheek.getUitleningen("alle");
 				//schrijven naar een tekstbestand (csv)
-				
+				FileWriter fw = new FileWriter("Uitleningen.txt");
+				PrintWriter pw = new PrintWriter(fw);
+				pw.println(alleUitleningen.toString());
+				fw.close();
+				pw.close();
 				break;
 			
+			/*	
 			case 4:
 				Uitleningen teLaat = mijnBibliotheek.getUitleningen("teLaat");
 				System.out.println(teLaat);

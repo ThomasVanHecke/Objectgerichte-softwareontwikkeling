@@ -1,3 +1,4 @@
+package Bibliotheek;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class Bibliotheek {
 			i ++;
 		}
 		if(ledenLijst.get(i).getNummer() == lidNummer) {
-			return new Lid(ledenLijst.get(i));
+			return ledenLijst.get(i);
 		}
 		else {
 			return null;
@@ -57,7 +58,7 @@ public class Bibliotheek {
 			i ++;
 		}
 		if(boekenLijst.get(i).getCode().compareTo(boekId) == 0) {
-			return new Boek(boekenLijst.get(i));
+			return boekenLijst.get(i);
 		}
 		else {
 			return null;
@@ -95,7 +96,15 @@ public class Bibliotheek {
 			return 10;
 		}
 		else {
+			System.out.println("Uitlening is niet verwijderd!");
 			return 0;
 		}
+	}
+
+	public Uitleningen getUitleningen(String string) {
+		if(string.compareTo("alle")  == 0) {
+			return this.uitleningen;
+		}
+		return null;
 	}
 }
