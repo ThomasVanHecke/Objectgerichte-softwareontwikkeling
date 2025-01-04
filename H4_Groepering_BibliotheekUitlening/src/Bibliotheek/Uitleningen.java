@@ -65,4 +65,21 @@ public class Uitleningen {
 			return false;
 		}
 	}
+
+	public void schrijf() {
+		System.out.println(this.toString());
+		
+	}
+
+	public String uitSchrijven() {
+		StringBuilder sb = new StringBuilder();
+		
+		// WITH LAMBDA EXPRESSION
+		this.uitleningen.forEach((key, value) -> {
+			System.out.println(value.uitSchrijven());
+			sb.append(key.uitSchrijven() + ',' + value.uitSchrijven() + System.lineSeparator());
+		});
+		
+		return sb.toString();
+	}
 }

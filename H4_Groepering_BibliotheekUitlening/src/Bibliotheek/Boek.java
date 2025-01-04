@@ -28,4 +28,9 @@ public class Boek {
 		StringBuilder sb = new StringBuilder("Code: " + this.code + " Auteur: " + this.auteur + " Titel: " + this.auteur);
 		return sb.toString();
 	}
+
+	public String uitSchrijven() {
+		StringBuilder sb = new StringBuilder(this.code + ',' + this.titel + ',' + this.auteur);
+		return sb.toString();
+	}
 }
