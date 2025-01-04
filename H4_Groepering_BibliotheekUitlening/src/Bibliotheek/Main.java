@@ -106,7 +106,7 @@ public class Main {
 				pw.close();
 				break;
 			
-			/*	
+			/*
 			case 4:
 				Uitleningen teLaat = mijnBibliotheek.getUitleningen("teLaat");
 				System.out.println(teLaat);

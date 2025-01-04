@@ -7,21 +7,21 @@ import java.util.Map;
  *  */
 
 public class Uitleningen {
-	private Map<Boek, Lid> uitleningen;
+	private Map<Boek, Lid> alleUitleningen;
 	
 	public Uitleningen() {
-		this.uitleningen = new HashMap<Boek, Lid>();
+		this.alleUitleningen = new HashMap<Boek, Lid>();
 	}
 	
 	public void voegUitleningToe(Lid l, Boek b) {
-		this.uitleningen.put(b, l);
+		this.alleUitleningen.put(b, l);
 		this.controleerVoegUitleningToe(l, b);
 	}
 	
 	public void controleerVoegUitleningToe(Lid l, Boek b) {
-		boolean containsKey = this.uitleningen.containsKey(b);
+		boolean containsKey = this.alleUitleningen.containsKey(b);
 		System.out.println("ContainsKey: " + containsKey);
-		boolean containsValue = this.uitleningen.containsValue(l);
+		boolean containsValue = this.alleUitleningen.containsValue(l);
 		System.out.println("ContainsValue: " + containsValue);
 		
 		if(containsKey && containsValue) {
@@ -31,7 +31,7 @@ public class Uitleningen {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder("Uitleningen: " + System.lineSeparator());
-		sb.append(this.uitleningen.entrySet() + System.lineSeparator());
+		sb.append(this.alleUitleningen.entrySet() + System.lineSeparator());
 		return sb.toString();
 	}
 	
@@ -40,15 +40,15 @@ public class Uitleningen {
 			System.out.println(l.toString() + System.lineSeparator());
 			System.out.println(b.toString() + System.lineSeparator());
 			
-			boolean containsKey = this.uitleningen.containsKey(b);
+			boolean containsKey = this.alleUitleningen.containsKey(b);
 			System.out.println("ContainsKey: " + containsKey);
-			boolean containsValue = this.uitleningen.containsValue(l);
+			boolean containsValue = this.alleUitleningen.containsValue(l);
 			System.out.println("ContainsValue: " + containsValue);
 			
 			if(containsKey && containsValue) {
 				System.out.println("Key and Value in map.");
 			}
-			boolean entryRemoved = this.uitleningen.remove(b, l);
+			boolean entryRemoved = this.alleUitleningen.remove(b, l);
 			//System.out.println(true);
 			return entryRemoved;
 		}
@@ -75,7 +75,7 @@ public class Uitleningen {
 		StringBuilder sb = new StringBuilder();
 		
 		// WITH LAMBDA EXPRESSION
-		this.uitleningen.forEach((key, value) -> {
+		this.alleUitleningen.forEach((key, value) -> {
 			sb.append(key.uitSchrijven() + "," + value.uitSchrijven() + System.lineSeparator());
 		});
 		
