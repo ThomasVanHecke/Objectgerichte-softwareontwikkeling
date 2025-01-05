@@ -24,7 +24,7 @@ public class Uitlening {
 	
 	
 	public int getAantalDagenTeLaat() {
-		return Math.max(0, getAantalDagenUitgeleend(LocalDateTime.now()) - Bibliotheek.MAX_DUUR_UITLENING_IN_DAGEN);
+		return Math.max(0, getAantalDagenUitgeleend(LocalDateTime.now()) - bibliotheek.MAX_DUUR_UITLENING_IN_DAGEN);
 	}
 
 	public boolean isTeLaat() {

@@ -1,4 +1,4 @@
-package Bibliotheek;
+package bibliotheek;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -83,12 +83,17 @@ public class Bibliotheek {
 	public String toString() {
 		StringBuilder sb = new StringBuilder("Boekenlijst: " + System.lineSeparator() + this.boeken.toString() + System.lineSeparator());
 		sb.append("Ledenlijst: " + System.lineSeparator() + this.leden.toString() + System.lineSeparator());
-		sb.append(this.uitleningen);
+		sb.append("Uitleningen: " + System.lineSeparator() + this.uitleningen.toString());
 		return sb.toString();
 	}
 	
 	public void voegUitleningToe(Lid l, Boek b) {
-		this.uitleningen.voegUitleningToe(l, b);
+		if(this.uitleningen.getUitleningBoek(b) != null) {
+			System.out.println("Dit boek is al uitgeleend.");
+		}
+		else {
+			this.uitleningen.voegUitleningToe(l, b);
+		}
 	}
 
 	public double verwijderUitleningEnBepaalBoete(Lid l, Boek b) {
@@ -96,7 +101,7 @@ public class Bibliotheek {
 			return 10;
 		}
 		else {
-			System.out.println("Uitlening is niet verwijderd!");
+			System.out.println("Deze uitlening bestaat niet.");
 			return 0;
 		}
 	}
@@ -104,6 +109,9 @@ public class Bibliotheek {
 	public Uitleningen getUitleningen(String string) {
 		if(string.compareTo("alle")  == 0) {
 			return this.uitleningen;
+		}
+		else if(string.compareTo("teLaat") == 0) {
+			return this.uitleningen.getUitleningTeLaat();
 		}
 		return null;
 	}

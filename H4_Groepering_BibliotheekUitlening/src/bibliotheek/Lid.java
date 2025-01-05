@@ -1,4 +1,4 @@
-package Bibliotheek;
+package bibliotheek;
 
 public class Lid {
 	private int nummer;

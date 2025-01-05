@@ -1,4 +1,4 @@
-package Bibliotheek;
+package bibliotheek;
 import java.util.LinkedList;
 import java.util.List;
 

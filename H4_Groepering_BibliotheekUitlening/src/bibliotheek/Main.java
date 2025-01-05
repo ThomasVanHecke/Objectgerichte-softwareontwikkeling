@@ -1,4 +1,4 @@
-package Bibliotheek;
+package bibliotheek;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -106,11 +106,11 @@ public class Main {
 				pw.close();
 				break;
 			
-			/*
+			
 			case 4:
 				Uitleningen teLaat = mijnBibliotheek.getUitleningen("teLaat");
 				System.out.println(teLaat);
-				break;*/
+				break;
 				
 			}
 		}

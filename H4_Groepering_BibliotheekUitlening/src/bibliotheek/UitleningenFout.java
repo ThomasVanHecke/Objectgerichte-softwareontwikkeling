@@ -1,4 +1,4 @@
-package Bibliotheek;
+package bibliotheek;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -6,10 +6,10 @@ import java.util.Map;
  * => OPVRAGEN VIA KLASSE
  *  */
 
-public class Uitleningen {
+public class UitleningenFout {
 	private Map<Boek, Lid> alleUitleningen;
 	
-	public Uitleningen() {
+	public UitleningenFout() {
 		this.alleUitleningen = new HashMap<Boek, Lid>();
 	}
 	
