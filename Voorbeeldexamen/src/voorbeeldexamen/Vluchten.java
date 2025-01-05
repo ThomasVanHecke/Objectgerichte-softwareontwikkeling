@@ -35,4 +35,14 @@ public class Vluchten {
 	public Vlucht getVlucht(int i) {
 		return this.vluchten.get(i);
 	}
+
+	public List<String> getNamenAankomstenVertrekkendVan(String vertrekPlaneet) {
+		List<String> aankomstNamen = new LinkedList<String>();
+		for(Vlucht v: this.vluchten) {
+			if(v.getVertrek().getNaam().compareTo(vertrekPlaneet) == 0) {
+				aankomstNamen.add(v.getAankomst().getNaam());
+			}
+		}
+		return aankomstNamen;
+	}
 }

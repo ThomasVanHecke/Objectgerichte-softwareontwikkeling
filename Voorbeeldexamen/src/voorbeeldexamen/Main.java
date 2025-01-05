@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -104,15 +105,16 @@ public class Main {
 		//schrijf alle gegevens van alle vluchten uit naar een tekstbestand (vluchten.txt)
 		FileWriter fw = new FileWriter("vluchten.txt");
 		PrintWriter pw = new PrintWriter(fw);
-		pw.println(vluchten.toString());
+		pw.println(vluchten);
+		pw.close();
 		
-		/*
+		
 		//deel 6
 		
 		//neem alle vluchten die vertrekken van Terminus en 
 		//neem de namen van de aankomstplaneten van die vluchten
 		//en plaats deze in een List<String>
 		List<String> aankomstNamen = vluchten.getNamenAankomstenVertrekkendVan("Terminus");
-		for (String s : aankomstNamen) System.out.println(s);*/
+		for (String s : aankomstNamen) System.out.println(s);
 	}
 }
